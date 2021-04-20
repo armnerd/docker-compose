@@ -1,3 +1,3 @@
-# docker-compose
+# DockerCompose集合
 
-> DockerCompose集合
+> docker-compose
