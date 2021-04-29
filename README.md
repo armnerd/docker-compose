@@ -1,3 +1,11 @@
-# DockerCompose集合
+# Docker 集合
 
-> docker-compose
+> docker-compose up -d
+
+* ES
+* Elk
+* Etcd
+* Grafana
+* Kafka
+* PHP
+* Tidb
