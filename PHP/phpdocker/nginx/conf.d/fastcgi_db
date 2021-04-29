@@ -1,0 +1,25 @@
+# mysql
+fastcgi_param  MYSQL_HOST_R  host.docker.internal;
+fastcgi_param  MYSQL_PORT_R  9501;
+fastcgi_param  MYSQL_USER_R  root;
+fastcgi_param  MYSQL_PASS_R  123456;
+fastcgi_param  MYSQL_NAME_R  cu_rbac;
+
+fastcgi_param  MYSQL_HOST_W  host.docker.internal;
+fastcgi_param  MYSQL_PORT_W  9501;
+fastcgi_param  MYSQL_USER_W  root;
+fastcgi_param  MYSQL_PASS_W  123456;
+fastcgi_param  MYSQL_NAME_W  cu_rbac;
+
+# mongo
+fastcgi_param  MONGODB_HOST  host.docker.internal;
+fastcgi_param  MONGODB_PORT  9502;
+fastcgi_param  MONGODB_NAME  admin;
+fastcgi_param  MONGODB_DATABASE  talk;
+fastcgi_param  MONGODB_USER  saiyou123;
+fastcgi_param  MONGODB_PASS  saiyou123;
+
+# redis
+fastcgi_param REDIS_HOSTNAME host.docker.internal;
+fastcgi_param REDIS_PORT 6379;
+fastcgi_param REDIS_PASSWORD '';

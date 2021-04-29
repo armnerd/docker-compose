@@ -1,0 +1,67 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    redis:
+      image: redis:alpine
+      container_name: redis-dev
+      networks:
+        - php-dev
+
+    mysql:
+      image: mysql:5.6
+      container_name: mysql-dev
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=123456
+        - MYSQL_DATABASE=geek
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=123123
+      networks:
+        - php-dev
+      ports:
+        - "8056:3306"
+         
+    nginx:
+      image: nginx:alpine
+      container_name: nginx-dev
+      working_dir: /application
+      volumes:
+        - .:/application
+        - /home/zane/data:/application/public
+        - ./phpdocker/nginx/conf.d:/etc/nginx/conf.d
+      networks:
+        - php-dev
+      ports:
+        - "80:80"
+
+    # php-fpm-72:
+    #   image: php_php-fpm-72:latest
+    #   build: phpdocker/php-fpm-72
+    #   container_name: php-74-dev
+    #   working_dir: /application
+    #   networks: 
+    #     - php-dev
+    #   volumes:
+    #     - .:/application
+    #     - /home/zane/data:/application/public
+    #     - ./phpdocker/php-fpm-72/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+
+    php-fpm-74:
+      image: php_php-fpm-74:latest
+      # build: phpdocker/php-fpm-74
+      container_name: php-74-dev
+      working_dir: /application
+      networks: 
+        - php-dev
+      volumes:
+        - .:/application
+        - /home/zane/data:/application/public
+        - ./phpdocker/php-fpm-74/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+
+networks:
+    php-dev:
